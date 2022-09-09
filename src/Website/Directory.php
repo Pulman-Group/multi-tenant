@@ -90,9 +90,10 @@ class Directory implements Filesystem
         }
 
         if ($local && $this->isLocal()) {
+            $config = $this->filesystem->getConfig();
             $path = sprintf(
-                "%s%s",
-                $this->filesystem->getAdapter()->getPathPrefix(),
+                "%s/%s",
+                $config['root'],
                 $path
             );
         }
